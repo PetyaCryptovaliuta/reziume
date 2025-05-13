@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Загальні стилі */
 body {
   font-family: Arial, sans-serif;
@@ -126,3 +127,51 @@ section {
   border-radius: 6px;
 }
 
+=======
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #2e2e2e;
+  margin: 0;
+  padding: 0;
+}
+
+header, section, footer {
+  background-color: #e6ecf0;
+}
+
+main {
+  background-color: white;
+}
+
+header {
+  background-color: #497fa1;
+  color: white;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #dbe4ea;
+  color: #497fa1;
+  margin-top: 40px;
+}
+
+article {
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+section {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #e6ecf0;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+>>>>>>> 688a9a9699d357c239fc387ef62fad40f2bbe218
