@@ -1,0 +1,125 @@
+/* Загальні стилі */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5; /* Світло-сірий фон для тіла */
+  color: #2e2e2e; /* Темний текст для контрасту */
+  margin: 0;
+  padding: 0;
+}
+
+header, section, footer {
+  background-color: #e6ecf0; /* Світлий фон для секцій */
+}
+
+/* Основний контент */
+main {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px; /* Додаємо округлені кути */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Додаємо тінь для глибини */
+}
+
+/* Стилі для хедера */
+header {
+  background-color: #497fa1; /* Синій фон */
+  color: white;
+  text-align: center;
+  padding: 30px 10px;
+  border-radius: 10px 10px 0 0; /* Округлення верхніх кутів */
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+/* Стилі для футера */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #dbe4ea; /* Світло-блакитний фон */
+  color: #497fa1;
+  margin-top: 40px;
+  border-radius: 0 0 10px 10px; /* Округлені нижні кути футера */
+}
+
+/* Стилі для секцій */
+section {
+  background-color: #ffffff; /* Білий фон для кожної секції */
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тінь для секцій */
+}
+
+/* Стилі для заголовків */
+h2, h3 {
+  color: #497fa1;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+/* Стилі для статей */
+article {
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f9f9f9; /* Легкий фон для статей */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Списки в секціях */
+ul {
+  list-style-type: none; /* Видаляємо стандартні маркери */
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+li::before {
+  content: "•"; /* Додаємо власний маркер */
+  color: #497fa1; /* Колір маркера */
+  margin-right: 8px;
+}
+
+/* Стилі для контактної інформації */
+#contact li {
+  font-size: 1.1rem;
+}
+
+/* Фон для кнопок або посилань */
+a {
+  color: #497fa1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+
+section {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #e6ecf0;
+  padding: 20px;
+  border-radius: 6px;
+}
+
