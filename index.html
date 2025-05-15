@@ -1,55 +1,308 @@
-<!DOCTYPE html> 
-<html lang="uk"> 
-<head>     
-    <meta charset="UTF-8">     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
-    <title>Моє Резюме</title> 
-    <link rel="stylesheet" href="styles.css">
-</head> 
-<body>     
-    <header>         
-        <h1>Борис Урбанович</h1>         
-        <p>Project Manager</p>     
-    </header> 
-     
-    <section id="contact">         
-        <h2>Контактна інформація</h2>         
-        <ul>             
-            <li>Email: urbanovichb@gmail.com</li>             
-            <li>Телефон: +380950719349</li>             
-            <li>Місто: Львів</li>         
-        </ul>     
-    </section> 
-     
-    <section id="education">         
-        <h2>Освіта</h2>         
-        <p>2011-2022 — "Бродівський опорний заклад загальної середньої освіти"</p>     
-        <p>2022- — НУЛП, спеціальність "Кібербезпека та захист інформації"</p>     
-    </section> 
-     
-    <section id="experience">         
-        <h2>Досвід роботи</h2>         
-        <article>             
-            <h3>2023 - Project Manager Store Development Adidas</h3>                         
-            <ul>                 
-                <li>Управління процесами та проектами</li>
-                <li>Організація команди фахівців</li>
-                <li>Контроль якості та своєчасності</li>
-            </ul>         
-        </article>     
-    </section> 
-     
-    <section id="skills">         
-        <h2>Навички</h2>         
-        <ul>             
-            <li>Сильні комунікативні навички.</li>             
-            <li>Володіння додатками MS Office Excel, Word, Outlook, Power Point і Auto CAD++.</li>             
-            <li>JavaScript (основи)</li>             
-            <li>Git</li>         
-        </ul>     
-    </section> 
-     
-    <footer>     
-    </footer> 
-</body> 
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Моє Резюме</title>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #2e2e2e;
+      margin: 0;
+      padding: 0;
+    }
+    body.dark {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+
+  
+    header {
+      background-color: #497fa1;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+      border-radius: 10px 10px 0 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    #toggle-theme-btn {
+      background-color: #e1e1e1;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    body.dark #toggle-theme-btn {
+      background-color: #333;
+      color: #f1f1f1;
+    }
+
+  
+    main.resume {
+      max-width: 800px;
+      margin: 20px auto 40px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    body.dark main.resume {
+      background-color: #222;
+    }
+
+    section {
+      margin-top: 20px;
+      background-color: #e6ecf0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    body.dark section {
+      background-color: #2a2a2a;
+      box-shadow: none;
+    }
+
+    h2, h3 {
+      color: #497fa1;
+      margin-bottom: 12px;
+    }
+    body.dark h2, body.dark h3 {
+      color: #7ab8e0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    li::before {
+      content: "•";
+      color: #497fa1;
+      margin-right: 8px;
+    }
+    body.dark li::before {
+      color: #7ab8e0;
+    }
+
+   
+    #system-comments-container {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    body.dark #system-comments-container {
+      background-color: #222;
+    }
+    #system-info {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    #comments div {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+    }
+    body.dark #comments div {
+      border-color: #555;
+    }
+
+ 
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal.show {
+      display: flex;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      color: black;
+      box-sizing: border-box;
+    }
+    body.dark .modal-content {
+      background: #333;
+      color: white;
+    }
+    form input, form textarea, form button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    form button {
+      background-color: #497fa1;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    form button:hover {
+      background-color: #3a627a;
+    }
+    .close-btn {
+      margin-top: 10px;
+      padding: 6px 12px;
+      cursor: pointer;
+      background: #bbb;
+      border: none;
+      border-radius: 4px;
+    }
+    .close-btn:hover {
+      background: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Борис Урбанович — Project Manager</h1>
+    <button id="toggle-theme-btn" onclick="toggleTheme()">🌓 Змінити тему</button>
+  </header>
+
+  <main class="resume">
+    <section id="contact">
+      <h2>Контактна інформація</h2>
+      <ul>
+        <li>Email: urbanovichb@gmail.com</li>
+        <li>Телефон: +380950719349</li>
+        <li>Місто: Львів</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Освіта</h2>
+      <p>2011-2022 — "Бродівський опорний заклад загальної середньої освіти"</p>
+      <p>2022- — НУЛП, спеціальність "Кібербезпека та захист інформації"</p>
+    </section>
+
+    <section id="experience">
+      <h2>Досвід роботи</h2>
+      <article>
+        <h3>2023 - Project Manager Store Development Adidas</h3>
+        <ul>
+          <li>Управління процесами та проектами</li>
+          <li>Організація команди фахівців</li>
+          <li>Контроль якості та своєчасності</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>Навички</h2>
+      <ul>
+        <li>Сильні комунікативні навички.</li>
+        <li>Володіння додатками MS Office Excel, Word, Outlook, Power Point і Auto CAD++.</li>
+        <li>JavaScript (основи)</li>
+        <li>Git</li>
+      </ul>
+    </section>
+  </main>
+
+  <section id="system-comments-container">
+    <div>
+      <h3>Інформація про браузер і ОС</h3>
+      <p id="system-info"></p>
+    </div>
+    <div id="comments">
+      <h3>Відгуки роботодавців</h3>
+    </div>
+  </section>
+
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <form action="https://formspree.io/f/mdkgwzkk" method="POST">
+        <h3>Зворотний зв’язок</h3>
+        <input name="name" placeholder="Ім’я" required />
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="phone" type="tel" placeholder="Телефон" />
+        <textarea name="message" placeholder="Повідомлення" required></textarea>
+        <button type="submit">Відправити</button>
+      </form>
+      <button class="close-btn" onclick="closeModal()">Закрити</button>
+    </div>
+  </div>
+
+  <script>
+ 
+    const systemInfo = {
+      platform: navigator.platform,
+      userAgent: navigator.userAgent,
+      language: navigator.language,
+      screenWidth: screen.width,
+      screenHeight: screen.height
+    };
+    document.getElementById("system-info").innerText =
+      `ОС: ${systemInfo.platform}, Браузер: ${systemInfo.userAgent}, Мова: ${systemInfo.language}`;
+
+   
+    const variant = 27;
+    fetch(`https://jsonplaceholder.typicode.com/posts/${variant}/comments`)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("comments");
+        data.forEach(comment => {
+          const div = document.createElement("div");
+          div.innerHTML = `<strong>${comment.name}</strong>: ${comment.body}`;
+          container.appendChild(div);
+        });
+      });
+
+   
+    setTimeout(() => {
+      const modal = document.getElementById("modal");
+      modal.classList.add("show");
+      modal.setAttribute('aria-hidden', 'false');
+    }, 60000);
+
+   
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      modal.classList.remove("show");
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+   
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+
+    window.onload = function () {
+      const hour = new Date().getHours();
+
+      if (hour >= 7 && hour <= 21) {
+        document.body.classList.remove("dark");
+      } else {
+        document.body.classList.add("dark");
+      }
+    };
+  </script>
+</body>
 </html>
